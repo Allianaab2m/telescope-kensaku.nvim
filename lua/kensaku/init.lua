@@ -118,7 +118,7 @@ local kensaku = function(opts)
       search_list = search_dirs
     end
 
-    local regex = vim.fn["kensaku#query"](prompt)
+    local regex = vim.fn["kensaku#query"](prompt, { rxop = vim.tbl_flatten(vim.g["kensaku#rxop#javascript"])})
 
     return flatten { args, "--", regex, search_list }
   end, opts.entry_maker or make_entry.gen_from_vimgrep(opts), opts.max_results, opts.cwd)
