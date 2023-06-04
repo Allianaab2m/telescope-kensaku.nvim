@@ -122,14 +122,12 @@ local kensaku = function(opts)
 			rxop = vim.g["kensaku#rxop#javascript"],
 		})
 
-		print(regex)
-
 		return flatten({ args, "--", regex, search_list })
 	end, opts.entry_maker or make_entry.gen_from_vimgrep(opts), opts.max_results, opts.cwd)
 
 	pickers
 		.new(opts, {
-			prompt_title = "Kensaku-dev",
+			prompt_title = "Kensaku",
 			finder = live_grepper,
 			previewer = conf.grep_previewer(opts),
 			-- TODO: It would be cool to use `--json` output for this
